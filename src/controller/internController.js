@@ -6,6 +6,7 @@ let testEmail = new RegExp("^[a-z0-9]{3,}@[a-z]{3,}[.]{1}[a-z]{2,6}$");
  
 //----------------------------Create Intern---------------------------------
 const createInterns = async function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin','*')
   try {
     const internData = req.body;
         if (Object.keys(internData).length == 0) {

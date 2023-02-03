@@ -1,9 +1,12 @@
 const express = require('express');
 const route = require('./router/router');
 const mongoose = require('mongoose');
+const multer = require('multer');
 const app = express();
 
 app.use(express.json());
+app.use(multer().any());
+app.use(express.urlencoded({extended:true}))
 
 mongoose.connect("mongodb+srv://kanirudh726:0cczXnVbYKHycDtp@project2-group14.tjfjpyg.mongodb.net/group-14Database" ,{
     UseNewUrlParser: true
@@ -13,6 +16,6 @@ mongoose.connect("mongodb+srv://kanirudh726:0cczXnVbYKHycDtp@project2-group14.tj
 
 app.use('/' , route)
 
-app.listen(process.env.PORT ||3000, function(){
-    console.log("express app running on port "+(process.env.port||3000))
+app.listen(process.env.PORT ||3001, function(){
+    console.log("express app running on port "+(process.env.port||3001))
 })

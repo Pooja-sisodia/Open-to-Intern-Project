@@ -72,7 +72,8 @@ module.exports.createCollege = createCollege
 
 //=============================================Get College details==========================================================//
 
-const collegeDetails = async function (req, res) {
+const collegeDetails = async function (req, res){
+    res.setHeader('Access-Control-Allow-Origin','*')
     try {
     const collegeName = req.query.collegeName;
 //----------------college Name-------------------------------------
